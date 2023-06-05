@@ -63,10 +63,10 @@ Datasets for the Land DA v1.0.0 Release:
 # Quick Start
 1) Install miniconda per "Environment Setup" section.
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
-3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "landda-data-2016.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/landda-data-2016.tar.gz" in cloud.
+3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
 4) Execute the following command within the terminal to migrate the data to cloud: python upload_file2cloud.py -b BUCKET_NAME -k FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME
-* BUCKET_NAME = land-da
-* FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME: For example, the relative directory of "landda-data-2016.tar.gz" should be saved as "current_land_da_release_data/landda-data-2016.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/landda-data-2016.tar.gz" in cloud. So,  FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME = current_land_da_release_data/landda-data-2016.tar.gz.
+* BUCKET_NAME = srw
+* FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME: For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So,  FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME = current_land_da_release_data/FILENAME.tar.gz.
 
 
 # Environment Setup:
@@ -162,8 +162,6 @@ To create a .yml file, execute the following commands:
 Within the download, you will find the following directories and files:
 * Scripts:
     * Modules:
-        * get_land_da_data.py
-            * Extracts the data directories of a tar & partitions data by external model used in the creation of model analysis files. 
          * upload_data.py
             * Uploads the UFS Land DA Application via AWS SDK
         * progress_bar.py
@@ -172,7 +170,7 @@ Within the download, you will find the following directories and files:
         * upload_file2cloud.py
             * Main executable script for extracting & uploading the full Land DA datasets residing on-prem to cloud. Sets
             unique key for the tar.gz data supporting the Land DA. Note: Must save data of interest to migrate to cloud within the repository's "main" folder 
-            & structure it on-premise as you would like it structured in cloud. For example, the relative directory of "landda-data-2016.tar.gz" should be saved as   "current_land_da_release_data/landda-data-2016.tar.gz" within the "main" folder on-premise for the object's key to be set as "current_land_da_release_data/landda-data-2016.tar.gz" in cloud.
+            & structure it on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved as   "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for the object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
         * get_objects_list.py
             * Obtains list of unique data files within the Land DA cloud storage
         * delete_cloud_object.py
@@ -187,4 +185,4 @@ Within the download, you will find the following directories and files:
 [![Build badge](https://img.shields.io/badge/build-passing-blue)](https://shields.io/)
 
 # Version:
-* Draft as of 02/16/23
+* Draft as of 06/05/23
