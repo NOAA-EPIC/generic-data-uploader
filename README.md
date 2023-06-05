@@ -18,7 +18,7 @@ Generic Data Uploader for
 
 __Purpose:__
 
-The purpose of this program is to transfer the Unified Forecast System Land Data Assimilation Application (UFS Land DA) datasets residing within the RDHPCS to cloud data storage via chaining API calls to communicate with its cloud data storage bucket. The program will support the data required for the UFS Land DA Application release versions.
+The purpose of this program is to transfer the Unified Forecast System (UFS)-based data residing within the RDHPCS to cloud data storage via chaining API calls to communicate with its cloud data storage bucket. The program will support the data required for the UFS Land DA Application release versions.
 
 According to Amazon AWS, the following conditions need to be considered when transferring data to cloud data storage:
 
@@ -33,7 +33,7 @@ Tools which could be be utilized to perform data transferring & partitioning (Mu
 * AWS CLI
 * AWS S3 REST API
 
-In this demontration, the framework will implement Python AWS SDK for transferring the UFS Land DA application fixed and input model datasets from the RDHPCS, Orion, to the cloud data storage with low latency. 
+In this demontration, the framework will implement Python AWS SDK for transferring the UFS-based data (e.g. fixed & input model datasets) from the RDHPCS, Orion, to the cloud data storage with low latency. 
 
 The AWS SDK will be implemented for the following reasons:
 To integrate with other python scripts.
