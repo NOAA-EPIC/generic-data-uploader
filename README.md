@@ -18,7 +18,7 @@ Generic Data Uploader for
 
 __Purpose:__
 
-The purpose of this program is to transfer the Unified Forecast System (UFS)-based data residing within the RDHPCS to cloud data storage via chaining API calls to communicate with its cloud data storage bucket. The program will support the data required for the UFS Land DA Application release versions.
+The purpose of this program is to transfer the Unified Forecast System (UFS)-based data residing within the RDHPCS to cloud data storage via chaining API calls to communicate with its cloud data storage bucket. The program will support the data required for the UFS application release versions.
 
 According to Amazon AWS, the following conditions need to be considered when transferring data to cloud data storage:
 
