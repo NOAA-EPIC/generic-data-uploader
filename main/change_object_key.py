@@ -6,7 +6,7 @@ import argparse
 
 # User Inputs.
 """
-Example: python change_object_key.py -b srw -k_current noaa-ufs-srw-pds/current_srw_release_data/[CURRENT_OBJECT_NAME_IN_CLOUD].tgz -k_new noaa-ufs-srw-pds/current_srw_release_data/[NEW_OBJECT_NAME_IN_CLOUD].tgz
+Example: python change_object_key.py -b srw -k_current current_srw_release_data/[CURRENT_OBJECT_NAME_IN_CLOUD].tgz -k_new current_srw_release_data/[NEW_OBJECT_NAME_IN_CLOUD].tgz
 """
 
 argParser = argparse.ArgumentParser()
