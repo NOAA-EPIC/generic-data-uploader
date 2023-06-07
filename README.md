@@ -6,7 +6,7 @@ Generic Data Uploader for
 
 <p align="center">
     <img src="images/header.png" width="850" height="280">
-     <img src="images/header2.png" width="600" height="280">
+    <img src="images/header2.png" width="600" height="580">
 </p>
 
 <h5 align="center">
