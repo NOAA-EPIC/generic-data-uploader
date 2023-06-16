@@ -166,9 +166,9 @@ Within the download, you will find the following directories and files:
             * Monitors uploading progress of datasets to cloud   
     * Main:
         * upload_file2cloud.py
-            * Main executable script for extracting & uploading the full Land DA datasets residing on-prem to cloud. Sets
-            unique key for the tar.gz data supporting the Land DA. Note: Must save data of interest to migrate to cloud within the repository's "main" folder 
-            & structure it on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved as   "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for the object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
+            * Main executable script for extracting & uploading the datasets residing on-prem to cloud. Sets
+            unique key for the tar.gz data supporting the UFS-based application. Note: Must save data of interest to migrate to cloud within the repository's "main" folder 
+            & structure it on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for the object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" within the Land DA established cloud storage on AWS.
         * get_objects_list.py
             * Obtains list of unique data files within the Land DA cloud storage
         * delete_cloud_object.py
@@ -183,4 +183,4 @@ Within the download, you will find the following directories and files:
 [![Build badge](https://img.shields.io/badge/build-passing-blue)](https://shields.io/)
 
 # Version:
-* Draft as of 06/05/23
+* Draft as of 06/16/23
