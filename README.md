@@ -64,7 +64,9 @@ To Migrate a Single File:
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
 3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
 4) Execute the following command within the terminal to migrate the data to cloud:
+   
    python upload_file2cloud.py -b BUCKET_NAME -k FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME
+   
 * BUCKET_NAME = srw
 * FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME: For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So,  FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME = current_land_da_release_data/FILENAME.tar.gz.
 
