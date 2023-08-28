@@ -59,7 +59,7 @@ Multi-threading & partitioning the datasets to assist in the optimization in upl
 Datasets for UFS application release versions.
 
 # Quick Start 
-To Migrate a Single File:
+## To Migrate a Single File:
 1) Install miniconda per "Environment Setup" section.
    
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
@@ -73,7 +73,7 @@ To Migrate a Single File:
     * BUCKET_NAME = srw (for SRW application's bucket), rt (for UFS-WM RT's bucket), or land-da (for Land DA's bucket)
     * FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME: For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So,  FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME = current_land_da_release_data/FILENAME.tar.gz.
 
-To Walk-Thru & Migrate a Nested Files w/ Keys Set to Mimic Their On-Premise Directory Paths:
+## To Walk-Thru & Migrate a Nested Files w/ Keys Set to Mimic Their On-Premise Directory Paths:
 1) Install miniconda per "Environment Setup" section.
    
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence. Note: For this application, ensure the UFS-WM RT bucket has a profile set to "ufs-wm-rt-app" (rather than, default) per the procedural setup described in the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
