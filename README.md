@@ -8,7 +8,7 @@ Generic Data Uploader for
     <img src="images/header5.png" width="690" height="350">
     <img src="images/header.png" width="700" height="280">
     <img src="images/header4.png" width="650" height="250">
-    <img src="images/header2.png" width="680" height="260">
+    <img src="images/header2.png" width="660" height="240">
     <img src="images/header3.png" width="530" height="380">
      <img src="images/header6.png" width="670" height="260">
 </p>
