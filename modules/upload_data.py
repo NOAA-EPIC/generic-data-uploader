@@ -1,4 +1,7 @@
-# S3 resource to connect to S3 via SDK
+import sys
+sys.path.append( '../main' )
+sys.path.append( '../modules' )
+from get_nested_data import GetNestedData
 import boto3
 from boto3.s3.transfer import TransferConfig
 import botocore
@@ -9,44 +12,37 @@ from pathlib import Path
 import time
 from progress_bar import ProgressPercentage
 import csv
-import sys
-sys.path.append( '../main' )
 
 class UploadData():
     """
     Upload datasets of interest to cloud service provider's data storage.
     
     """
-    def __init__(self, file_relative_dirs, use_bucket):
+    def __init__(self, use_bucket):
         """
-        Args: 
-            file_relative_dirs (list): List of data's relative directory paths on-premise.
-                                       
+        Args:                          
             use_bucket (str): If set to 'rt', datasets will be uploaded to the cloud data
-                              storage bucket designated for the UFS RT datasets. If set 
-                              to 'srw' datasets will be uploaded to the cloud data
+                              storage bucket designated for the UFS-WM RT datasets. If set 
+                              to 'srw', datasets will be uploaded to the cloud data
                               storage bucket designated for the UFS SRW datasets. If set to
                               'land-da', datasets will be uploaded to the cloud data storage
                               bucket designated for the UFS Land DA datasets. 
-                              Options: 'rt', 'srw', 'land-da'
+                              Options: 'srw', 'land-da', 'rt'
                               
         """
         
         # Main on-prem directory to locate the datasets. 
         self.work_dir = './'
         
-        # List of data files' relative directory paths on-prem. 
-        self.file_relative_dirs = file_relative_dirs
-        
-        if use_bucket == 'rt':
-            self.bucket_name = 'noaa-ufs-regtests-pds'
-            self.profile = 'default'
+        if use_bucket == 'land-da':
+            self.bucket_name = 'noaa-ufs-land-da-pds'
+            self.profile = 'land-da-app'
         elif use_bucket == 'srw':
             self.bucket_name = 'noaa-ufs-srw-pds'
             self.profile = 'srw-app'
-        elif use_bucket == 'land-da':
-            self.bucket_name = 'noaa-ufs-land-da-pds'
-            self.profile = 'land-da-app'
+        elif use_bucket == 'rt':
+            self.bucket_name = 'noaa-ufs-regtests-pds'
+            self.profile = 'ufs-wm-rt-app'
         else:
             print(f"{use_bucket} Bucket Does Not Exist.")
             
@@ -77,7 +73,7 @@ class UploadData():
         
         start_time = time.time()
 
-        # Configuration for multipart upload.
+
         KB, MB, GB = 1024, 1024**2, 1024**3
         config = TransferConfig(multipart_threshold=100*MB,
                                 max_concurrency=10,
@@ -102,23 +98,24 @@ class UploadData():
 
         return 
     
-    def upload_files2cloud(self):
+    def upload_files2cloud(self, file_relative_dirs):
         """
         Iterate through list of data files' relative directory paths featured on-premise. 
 
         Args:
-            None
+            file_relative_dirs (list): List of data's relative directory paths on-premise.
             
         Return: None
         
         """
-        for dataset_type, ts_files in self.file_relative_dirs.items():
-            for file_dir in ts_files:
-                self.upload_single_file(file_dir)
+        
+        for file_dir in file_relative_dirs:
+            print(file_dir)
+            self.upload_single_file(file_dir)
                 
         return 
     
-    def multi_part_upload_with_s3_withTuning(self, file_dir, chunk_sz_list): # ========================= For development purposes.
+    def multi_part_upload_with_s3_withTuning(self, file_dir, chunk_sz_list):
         """
         Tuning API parameters for uploading a single data file to cloud data storage.
 
@@ -236,7 +233,7 @@ class UploadData():
         for ob in objects:
             print(ob)
         objects.delete()
-        print(f"\nCompleted: {key_prefix} prefixed objects have been deleted.")
+        print(f"\nPurge Completed for {self.bucket_name} Bucket.")
         
         return
     
