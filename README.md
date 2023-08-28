@@ -80,7 +80,8 @@ __To Walk-Thru & Migrate a Nested Files w/ Keys Set to Mimic Their On-Premise Di
    
 3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
 
-4) Execute the following command within the terminal to migrate the data to cloud:
+4) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
+*Note: Each object will have their keys set as their data directory/location as seen on their local source's disk. It is required that the data of interest has its permissions set to readable.
    
    * python upload_nested_files2cloud.py -b BUCKET_NAME -m PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD
      
