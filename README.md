@@ -76,7 +76,9 @@ __To Migrate a Single File:__
 
     * 'srw' (for SRW application's bucket), 'rt' (for UFS-WM RT's bucket), or 'land-da' (for Land DA's bucket)
 
-* __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__ As an example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ = current_land_da_release_data/FILENAME.tar.gz.
+* __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__
+    
+    * As an example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ = current_land_da_release_data/FILENAME.tar.gz.
 
 __To Walk-Thru & Migrate Nested Files to Cloud (Set Each File as Object w/ Key Set As Their Relative On-Premise Directory Path):__
 1) Install miniconda per "Environment Setup" section.
