@@ -91,15 +91,11 @@ Each key will correspond to their object's relative directory path as seen on-pr
 5) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
 *Note: Each object will have their keys set as their data directory/location as seen on their local source's disk. It is required that the data of interest has its permissions set to readable.
    
-   * python upload_nested_files2cloud.py -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__
+   * python upload_nested_files2cloud.py -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/
      
         * __BUCKET_NAME__:
     
             * "srw" (for SRW application's bucket), "rt" (for UFS-WM RT's bucket), or "land-da" (for Land DA's bucket)
-
-        * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__:
-  
-            * The format should be structured as such "__PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/"
 
 # Environment Setup:
 
