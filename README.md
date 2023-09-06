@@ -70,7 +70,7 @@ __To Migrate a Single File:__
    
 4) Execute the following command within the terminal to migrate the data to cloud:
    
-    * python upload_file2cloud.py -b __BUCKET_NAME__ -k __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__
+    * python __upload_file2cloud.py__ -b __BUCKET_NAME__ -k __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__
    
         * __BUCKET_NAME__:
 
@@ -91,7 +91,7 @@ Each key will correspond to their object's relative directory path as seen on-pr
 5) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
 *Note: Each object will have their keys set as their data directory/location as seen on their local source's disk. It is required that the data of interest has its permissions set to readable.
    
-   * python upload_nested_files2cloud.py -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/
+   * python __upload_nested_files2cloud.py__ -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/
      
         * __BUCKET_NAME__:
     
@@ -190,18 +190,21 @@ To create a .yml file, execute the following commands:
 Within the download, you will find the following directories and files:
 * Scripts:
     * Modules:
-         * upload_data.py
+         * __upload_data.py__
             * Uploads the UFS Land DA Application via AWS SDK
         * progress_bar.py
             * Monitors uploading progress of datasets to cloud   
     * Main:
-        * upload_file2cloud.py
+        * __upload_file2cloud.py__
             * Main executable script for extracting & uploading the datasets residing on-prem to cloud. Sets
             unique key for the tar.gz data supporting the UFS-based application. Note: Must save data of interest to migrate to cloud within the repository's "main" folder 
             & structure it on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for the object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" within the Land DA established cloud storage on AWS.
-        * get_objects_list.py
+        * __upload_nested_files2cloud.py__
+            * Main executable script for walking thru nested files within a folder.
+              It will extract & uploading each file as object to cloud with each object's key set as their corresponding relative directory paths.
+        * __get_objects_list.py__
             * Obtains list of unique data files within the Land DA cloud storage
-        * delete_cloud_object.py
+        * __delete_cloud_object.py__
             * Main executable script for deleting the objects of the Land DA in datasets in cloud based on their unique key.
 
 * List of Dependencies: 
