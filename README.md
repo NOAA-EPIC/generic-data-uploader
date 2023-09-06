@@ -78,16 +78,17 @@ __To Migrate a Single File:__
 __To Walk-Thru & Migrate a Nested Files w/ Keys Set to Mimic Their On-Premise Directory Paths:__
 1) Install miniconda per "Environment Setup" section.
    
-2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence. Note: For this application, ensure the UFS-WM RT bucket has a profile set to "ufs-wm-rt-app" (rather than, default) per the procedural setup described in the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
+2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence. Note: For this application, ensure the UFS-WM RT bucket has a profile set to "ufs-wm-rt-app" per the procedural setup described in the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
    
-3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
+3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, "PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise -- allows each of the folder's files to be set to an object with their key set as "current_land_da_release_data/FOLDERNAME/SUBFOLDERNAME/.../FILENAME" in cloud.
+Each key will correspond to their object's relative directory path as seen on-premise.
 
-4) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
+5) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
 *Note: Each object will have their keys set as their data directory/location as seen on their local source's disk. It is required that the data of interest has its permissions set to readable.
    
    * python upload_nested_files2cloud.py -b BUCKET_NAME -m PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD
      
-* BUCKET_NAME = srw (for SRW application's bucket), rt (for UFS-WM RT's bucket), or land-da (for Land DA's bucket)
+* __BUCKET_NAME__ = srw (for SRW application's bucket), rt (for UFS-WM RT's bucket), or land-da (for Land DA's bucket)
 * FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME: The format should be structured as such "PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD/"
 
 # Environment Setup:
