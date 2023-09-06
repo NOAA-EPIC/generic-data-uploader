@@ -70,10 +70,10 @@ __To Migrate a Single File:__
    
 4) Execute the following command within the terminal to migrate the data to cloud:
    
-    * python upload_file2cloud.py -b BUCKET_NAME -k FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME
+    * python upload_file2cloud.py -b __BUCKET_NAME__ -k __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__
    
 * __BUCKET_NAME__: 'srw' (for SRW application's bucket), 'rt' (for UFS-WM RT's bucket), or 'land-da' (for Land DA's bucket)
-* __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__ For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So,  FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME = current_land_da_release_data/FILENAME.tar.gz.
+* __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__ For example, the relative directory of "FILENAME.tar.gz" should be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. So,  __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__= current_land_da_release_data/FILENAME.tar.gz.
 
 __To Walk-Thru & Migrate a Nested Files w/ Keys Set to Mimic Their On-Premise Directory Paths:__
 1) Install miniconda per "Environment Setup" section.
@@ -86,7 +86,7 @@ Each key will correspond to their object's relative directory path as seen on-pr
 5) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
 *Note: Each object will have their keys set as their data directory/location as seen on their local source's disk. It is required that the data of interest has its permissions set to readable.
    
-   * python upload_nested_files2cloud.py -b BUCKET_NAME -m PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD
+   * python upload_nested_files2cloud.py -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__
      
 * __BUCKET_NAME__: 'srw' (for SRW application's bucket), 'rt' (for UFS-WM RT's bucket), or 'land-da' (for Land DA's bucket)
 * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__: The format should be structured as such "PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD/"
