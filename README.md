@@ -85,7 +85,7 @@ __To Walk-Thru & Migrate Nested Files to Cloud (Set Each File as Object w/ Key S
    
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence. Note: For this application, ensure the UFS-WM RT bucket has a profile set to "ufs-wm-rt-app" per the procedural setup described in the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
    
-3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, "PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise -- allows each of the folder's files to be set to an object with their key set as "current_land_da_release_data/FOLDERNAME/SUBFOLDERNAME/.../FILENAME" in cloud.
+3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, "__PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise -- allows each of the folder's files to be set to an object with their key set as "current_land_da_release_data/__PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/SUBFOLDERNAME/.../FILENAME" in cloud.
 Each key will correspond to their object's relative directory path as seen on-premise.
 
 5) Execute the following command within the terminal to migrate each individual data file w/in the data folder to cloud as individual objects. 
@@ -99,7 +99,7 @@ Each key will correspond to their object's relative directory path as seen on-pr
 
         * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__:
   
-            * The format should be structured as such "PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD/"
+            * The format should be structured as such "__PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/"
 
 # Environment Setup:
 
