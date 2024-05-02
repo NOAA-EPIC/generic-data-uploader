@@ -33,8 +33,14 @@ class UploadData():
         
         # Main on-prem directory to locate the datasets. 
         self.work_dir = './'
-        
-        if use_bucket == 'land-da':
+
+        if use_bucket == 'gdas':
+            self.bucket_name = 'noaa-ufs-gdas-pds'
+            self.profile = 'gdas-app'
+        elif use_bucket == 'htf':
+            self.bucket_name = 'noaa-ufs-htf-pds'
+            self.profile = 'htf-app'
+        elif use_bucket == 'land-da':
             self.bucket_name = 'noaa-ufs-land-da-pds'
             self.profile = 'land-da-app'
         elif use_bucket == 'srw':
