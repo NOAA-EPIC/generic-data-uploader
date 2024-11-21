@@ -6,7 +6,7 @@ Generic Data Uploader for
 
 <h5 align="center">
     
-[About](#About) • [Prerequisites](#Prerequisites) • [Quick Start](#Quick-Start) • [Environment Setup](#Environment-Setup) • [What's Included](#What's-Included) • [Status](#Status) • [Version](#Version)
+[About](#About) • [Prerequisites](#Prerequisites) • [Quick Start](#Quick-Start) • [Environment Setup](#Environment-Setup) • [What's Included](#What's-Included) • [Example](#Example) • [Status](#Status) • [Version](#Version)
 
 </h5>
 
@@ -43,7 +43,7 @@ The framework will be able to perform the following actions:
 Multi-threading & partitioning the datasets to assist in the optimization in uploading performance of the datasets from on-premise to cloud. 
 
 # Prerequisites
-* Setting up AWS CLI configurations with IAM credentials: 
+* Setting up AWS CLI configurations with IAM credentials: https://confluence.epic.oarcloud.noaa.gov/pages/viewpage.action?spaceKey=US&title=AWS+Command+Line+Interface+%28AWS+CLI%29+Credentials+Setup
 * Clone this repository (generic data uploader)
 * Setting up conda environment w/in RDHPCS.
     * Refer to [Environment Setup](#Environment-Setup)
@@ -183,9 +183,6 @@ Within the download of this repository you will find the following directories a
         * __cloud_xfer_env.yml__
             * The main conda environment YML file used for the generic data uploader.
 
-* List of Dependencies: 
-    * cloud_xfer_env.yml
-
 ### Link Home Directory to Dataset Location on RDHPCS Platform
 
 * Unfortunately, there is no way to navigate to the "/work/" filesystem from within the Jupyter interface when working on the remote server, Orion. The best way to workaround is to create a symbolic link in your home folder that will take you to the /work/ filesystem. Run the following command from a linux terminal on Orion to create the link:
@@ -203,6 +200,14 @@ Within the download of this repository you will find the following directories a
     * Login to https://orion-ood.hpc.msstate.edu/
 
 * In the Open OnDemand Interface, select Interactive Apps > Jupyter Notbook
+
+# Example 
+
+Below is an example of what the files and directory look like in the AWS S3 bucket. This specific example is for the Land DA bucket with its most recent release.
+
+<p align="center">
+    <img src=images/landdaex.png" width="690" height="350">
+</p>
 
 # Status
 
