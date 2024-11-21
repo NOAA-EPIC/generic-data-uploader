@@ -206,7 +206,7 @@ Within the download of this repository you will find the following directories a
 Below is an example of what the files and directory look like in the AWS S3 bucket. This specific example is for the Land DA bucket with its most recent release.
 
 <p align="center">
-    <img src=images/landdaex.png" width="690" height="350">
+    <img src=images/landdaex.jpeg" width="690" height="350">
 </p>
 
 # Status
