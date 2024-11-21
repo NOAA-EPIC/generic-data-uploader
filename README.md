@@ -43,7 +43,8 @@ The framework will be able to perform the following actions:
 Multi-threading & partitioning the datasets to assist in the optimization in uploading performance of the datasets from on-premise to cloud. 
 
 # Prerequisites
-* Setting up AWS CLI configurations for uploading to Cloud.
+* Setting up AWS CLI configurations with IAM credentials: 
+* Clone this repository (generic data uploader)
 * Setting up conda environment w/in RDHPCS.
     * Refer to [Environment Setup](#Environment-Setup)
 * [![Version badge](https://img.shields.io/badge/Python-3.9-blue.svg)](https://shields.io/)
@@ -53,13 +54,15 @@ Datasets for UFS application release versions.
 
 # Quick Start 
 __To Migrate a Single File:__
+
 1) Install miniconda per "Environment Setup" section.
    
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
    
-3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
+3) Save data file you want to move within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, 
+    __generic-data-uploader/main/[new directory]/[new file]__
    
-4) Execute the following command within the terminal to migrate the data to cloud:
+4) Move back to "main" directory and execute the following command within the terminal to migrate the data to cloud:
    
     * python __upload_file2cloud.py__ -b __BUCKET_NAME__ -k __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__
    
@@ -69,7 +72,9 @@ __To Migrate a Single File:__
 
         * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__
     
-            * As an example, the relative directory of "FILENAME.tar.gz" could be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. In this scenario, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ would be set to "current_land_da_release_data/FILENAME.tar.gz".
+            * As an example for Land DA files, the relative directory of "FILENAME.tar.gz" could be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. In this scenario, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ would be set to "current_land_da_release_data/FILENAME.tar.gz".
+
+            __generic-data-uploader/main/current_land_da_release_data/FILENAME.tar.gz__
 
 __To Walk-Thru & Migrate Nested Files to Cloud (Set Each File as Object w/ Key Set As Their Relative On-Premise Directory Path):__
 1) Install miniconda per "Environment Setup" section.
@@ -113,7 +118,14 @@ source ~/.bashrc
 
 * Next, you will see the prefix (base) in front of your terminal/shell prompt. Indicating the conda's base environment is activated.
 
-* Once you have conda installed on your machine, perform the following to create a conda environment:
+    * To create a new environment from an existing YAML file (if a YAML file is provided):
+
+    * conda env create -f environment.yml
+    Note: This is the recommended approach for using the generic data uploader as the YAML file is provided in the repository (__generic-data-uploader/env/cloud_xfer_env.yml__). A .yml file is a text file that contains a list of dependencies, which channels a list for installing dependencies for the given conda environment. For the code to utilize the dependencies, you will need to be in the directory where the environment.yml file lives.
+
+        * conda env create -f cloud_xfer_env.yml
+    
+(OR)
 
     * To create a new environment (if a YAML file is not provided)
 
@@ -124,14 +136,6 @@ source ~/.bashrc
     * To ensure you are running Python 3.9:
 
         * conda create -n myenv Python=3.9
-
-(OR)
-
-* To create a new environment from an existing YAML file (if a YAML file is provided):
-
-    * conda env create -f environment.yml
-
-*Note: A .yml file is a text file that contains a list of dependencies, which channels a list for installing dependencies for the given conda environment. For the code to utilize the dependencies, you will need to be in the directory where the environment.yml file lives.
 
 ### Activate the new environment via:
 
