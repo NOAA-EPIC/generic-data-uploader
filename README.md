@@ -197,7 +197,9 @@ Within the download, you will find the following directories and files:
             * Obtains list of unique data files within the Land DA cloud storage
         * __delete_cloud_object.py__
             * Main executable script for deleting the objects of the Land DA in datasets in cloud based on their unique key.
-
+    * env:
+        * __cloud_xfer_env.yml__
+            * The main conda environment YML file used for the generic data uploader.
 * List of Dependencies: 
     * cloud_xfer_env.yml
 
