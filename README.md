@@ -147,25 +147,7 @@ conda activate [Name of your conda environment you wish to activate]
     * To deactivate a conda environment:
         * conda deactivate
 
-### Link Home Directory to Dataset Location on RDHPCS Platform
-
-* Unfortunately, there is no way to navigate to the "/work/" filesystem from within the Jupyter interface when working on the remote server, Orion. The best way to workaround is to create a symbolic link in your home folder that will take you to the /work/ filesystem. Run the following command from a linux terminal on Orion to create the link:
-
-    * ln -s /work /home/[Your user account name]/work
-
-* Now, when you navigate to the /home/[Your user account name]/work directory in Jupyter, it will take you to the /work folder. Allowing you to obtain any data residing within the /work filesystem that you have permission to access from Jupyter. This same procedure will work for any filesystem available from the root directory.
-
-*Note: On Orion, user must sym link from their home directory to the main directory containing the datasets of interest.
-
-## Open & Run Application on Jupyter Notebook
-
-* Open OnDemand has a built-in file explorer and file transfer application available directly from its dashboard via:
-
-    * Login to https://orion-ood.hpc.msstate.edu/
-
-* In the Open OnDemand Interface, select Interactive Apps > Jupyter Notbook
-
-### Additonal Information
+### Additonal Information for Environment
 
 To create a .yml file, execute the following commands:
 
@@ -178,7 +160,7 @@ To create a .yml file, execute the following commands:
     * conda env export > [ENVIRONMENT FILENAME].yml
 
 # What's Included
-Within the download, you will find the following directories and files:
+Within the download of this repository you will find the following directories and files:
 * Scripts:
     * Modules:
          * __upload_data.py__
@@ -200,8 +182,27 @@ Within the download, you will find the following directories and files:
     * env:
         * __cloud_xfer_env.yml__
             * The main conda environment YML file used for the generic data uploader.
+
 * List of Dependencies: 
     * cloud_xfer_env.yml
+
+### Link Home Directory to Dataset Location on RDHPCS Platform
+
+* Unfortunately, there is no way to navigate to the "/work/" filesystem from within the Jupyter interface when working on the remote server, Orion. The best way to workaround is to create a symbolic link in your home folder that will take you to the /work/ filesystem. Run the following command from a linux terminal on Orion to create the link:
+
+    * ln -s /work /home/[Your user account name]/work
+
+* Now, when you navigate to the /home/[Your user account name]/work directory in Jupyter, it will take you to the /work folder. Allowing you to obtain any data residing within the /work filesystem that you have permission to access from Jupyter. This same procedure will work for any filesystem available from the root directory.
+
+*Note: On Orion, user must sym link from their home directory to the main directory containing the datasets of interest.
+
+## Open & Run Application on Jupyter Notebook
+
+* Open OnDemand has a built-in file explorer and file transfer application available directly from its dashboard via:
+
+    * Login to https://orion-ood.hpc.msstate.edu/
+
+* In the Open OnDemand Interface, select Interactive Apps > Jupyter Notbook
 
 # Status
 
@@ -209,4 +210,4 @@ Within the download, you will find the following directories and files:
 [![Build badge](https://img.shields.io/badge/build-passing-blue)](https://shields.io/)
 
 # Version:
-* Draft as of 06/16/23
+* Draft as of 11/21/24
