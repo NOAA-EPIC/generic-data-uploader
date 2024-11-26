@@ -8,7 +8,7 @@ import argparse
 
 # User Inputs.
 argParser = argparse.ArgumentParser()
-argParser.add_argument("-b", "--bucket", help="Object's bucket label. Type: String. Options: 'land-da', 'srw', 'rt', 'gdas', 'htf'")
+argParser.add_argument("-b", "--bucket", help="Object's bucket label. Type: String. Options: 'land-da', 'srw', 'rt', 'gdas', 'htf', 'coastal")
 argParser.add_argument("-m", "--main_data_dir", help="Dataset's parent folder. Type: String. Format: 'PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD/'")
 
 args = argParser.parse_args()

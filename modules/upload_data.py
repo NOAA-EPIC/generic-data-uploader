@@ -49,6 +49,9 @@ class UploadData():
         elif use_bucket == 'rt':
             self.bucket_name = 'noaa-ufs-regtests-pds'
             self.profile = 'ufs-wm-rt-app'
+        elif use bucket == 'coastal':
+            self.bucket_name = 'noaa-ufs-costal-pds'
+            self.profile = 'coastal-app'
         else:
             print(f"{use_bucket} Bucket Does Not Exist.")
             
