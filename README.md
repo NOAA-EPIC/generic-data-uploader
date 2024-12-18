@@ -64,8 +64,15 @@ __To Migrate a Single File:__
     * python __upload_file2cloud.py__ -b __BUCKET_NAME__ -k __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__
    
         * __BUCKET_NAME__:
+            Use one of the below options for the available cloud buckets:
 
-            *  "srw" (for SRW application's bucket), "rt" (for UFS-WM RT's bucket), or "land-da" (for Land DA's bucket)
+            *  "srw" (Short-Range Weather application's bucket) 
+            *  "rt" (UFS-WM Regression Test's bucket)
+            *  "land-da" (Land DA's bucket)
+            *  "gdas" (Global Data Assimilation System bucket)
+            *  "htf"  (Hierarchical Testing Framework bucket)
+            *  "mrw"  (Mid-Range Weather application bucket)
+            *  "coastal" (UFS Costal bucket)
 
         * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__
     
@@ -87,8 +94,15 @@ Each key will correspond to their object's relative directory path as seen on-pr
    * python __upload_nested_files2cloud.py__ -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/
      
         * __BUCKET_NAME__:
-    
-            * "srw" (for SRW application's bucket), "rt" (for UFS-WM RT's bucket), or "land-da" (for Land DA's bucket)
+            Use one of the below options for the available cloud buckets:
+            
+            *  "srw" (Short-Range Weather application's bucket) 
+            *  "rt" (UFS-WM Regression Test's bucket)
+            *  "land-da" (Land DA's bucket)
+            *  "gdas" (Global Data Assimilation System bucket)
+            *  "htf"  (Hierarchical Testing Framework bucket)
+            *  "mrw"  (Mid-Range Weather application bucket)
+            *  "coastal" (UFS Costal bucket)
 
 # Environment Setup:
 

@@ -27,7 +27,7 @@ class UploadData():
                               storage bucket designated for the UFS SRW datasets. If set to
                               'land-da', datasets will be uploaded to the cloud data storage
                               bucket designated for the UFS Land DA datasets. 
-                              Options: 'srw', 'land-da', 'rt', 'gdas', 'htf'
+                              Options: 'srw', 'land-da', 'rt', 'gdas', 'htf', 'coastal'
                               
         """
         
