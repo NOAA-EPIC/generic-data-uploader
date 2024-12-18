@@ -45,7 +45,7 @@ Multi-threading & partitioning the datasets to assist in the optimization in upl
 # Prerequisites
 * Setting up AWS CLI configurations with IAM credentials: https://confluence.epic.oarcloud.noaa.gov/pages/viewpage.action?spaceKey=US&title=AWS+Command+Line+Interface+%28AWS+CLI%29+Credentials+Setup
 * Clone this repository (generic data uploader)
-* Setting up conda environment w/in RDHPCS.
+* Setting up conda environment within RDHPCS.
     * Refer to [Environment Setup](#Environment-Setup)
 * [![Version badge](https://img.shields.io/badge/Python-3.9-blue.svg)](https://shields.io/)
 
@@ -95,7 +95,7 @@ Each key will correspond to their object's relative directory path as seen on-pr
      
         * __BUCKET_NAME__:
             Use one of the below options for the available cloud buckets:
-            
+
             *  "srw" (Short-Range Weather application's bucket) 
             *  "rt" (UFS-WM Regression Test's bucket)
             *  "land-da" (Land DA's bucket)
@@ -125,7 +125,7 @@ Reference SHA256 hash in following link: https://docs.conda.io/en/latest/minicon
 
 * For installation to take into effect, run the following command:
 
-source ~/.bashrc
+    * source ~/.bashrc
 
 * Next, you will see the prefix (base) in front of your terminal/shell prompt. Indicating the conda's base environment is activated.
 
@@ -157,7 +157,7 @@ conda activate [Name of your conda environment you wish to activate]
 
 *Note:
 
-* From this point on, must activate conda environment prior to .py script(s) or jupyter notebooks execution using the following command: conda activate
+* From this point on, must activate conda environment prior to .py script(s) or jupyter notebooks execution using the following command: __conda activate__
     * To deactivate a conda environment:
         * conda deactivate
 
