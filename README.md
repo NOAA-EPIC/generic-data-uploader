@@ -205,7 +205,9 @@ Within the clone (download) of this repository, you will find the following dire
 
 * Unfortunately, there is no way to navigate to the "/work/" filesystem from within the Jupyter interface when working on the remote server, Orion. The best way to workaround is to create a symbolic link in your home folder that will take you to the /work/ filesystem. Run the following command from a linux terminal on Orion to create the link:
 
-    * ln -s /work /home/[Your user account name]/work
+    ```
+    ln -s /work /home/[Your user account name]/work
+    ```
 
 * Now, when you navigate to the /home/[Your user account name]/work directory in Jupyter, it will take you to the /work folder. Allowing you to obtain any data residing within the /work filesystem that you have permission to access from Jupyter. This same procedure will work for any filesystem available from the root directory.
 
