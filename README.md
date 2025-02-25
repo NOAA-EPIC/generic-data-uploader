@@ -147,7 +147,9 @@ Note: The first option below is the recommended approach for using the generic d
 
     * To ensure you are running Python 3.9:
 
-        * conda create -n myenv Python=3.9
+    ```
+    conda create -n myenv Python=3.9
+    ```
 
 ### Activate the new environment via:
 
