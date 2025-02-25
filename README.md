@@ -161,7 +161,7 @@ conda activate [Name of your conda environment you wish to activate]
 
 *Note:
 
-* From this point on, must activate conda environment prior to .py script(s) or jupyter notebooks execution using the following command: __conda activate__
+* From this point on, activate the conda environment prior to executing `.py` script(s) or jupyter notebooks using the following command: `conda activate`
     * To deactivate a conda environment:
         * conda deactivate
 
