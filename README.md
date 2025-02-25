@@ -56,7 +56,7 @@ __To Migrate a Single File:__
    
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
    
-3) Save data file you want to move within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, 
+3) Save data file you want to move within the repository's "main" folder & structure the data on-premises as you would like it structured in cloud. For example, 
     __generic-data-uploader/main/[new directory]/[new file]__
    
 4) Move back to "main" directory and execute the following command within the terminal to migrate the data to cloud:
