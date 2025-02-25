@@ -139,7 +139,7 @@ Note: The first option below is the recommended approach for using the generic d
     
 (OR)
 
-    * To create a new environment (if a YAML file is not provided)
+* To create a new environment (if a YAML file is not provided)
 
         * conda create -n [Name of your conda environment you wish to create]
 
