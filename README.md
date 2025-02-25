@@ -76,7 +76,7 @@ __To Migrate a Single File:__
 
         * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__
     
-            * As an example for Land DA files, the relative directory of "FILENAME.tar.gz" could be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. In this scenario, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ would be set to "current_land_da_release_data/FILENAME.tar.gz".
+            * As an example for Land DA files, the relative directory of "FILENAME.tar.gz" could be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premises for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. In this scenario, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ would be set to "current_land_da_release_data/FILENAME.tar.gz".
 
             __generic-data-uploader/main/current_land_da_release_data/FILENAME.tar.gz__
 
