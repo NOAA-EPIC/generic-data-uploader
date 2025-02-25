@@ -1,0 +1,17 @@
+# Delete Objects with Key Prefix.
+import sys
+sys.path.append( '../modules' )
+from upload_data import UploadData
+import argparse
+
+# User Inputs.
+argParser = argparse.ArgumentParser()
+argParser.add_argument("-b", "--bucket", help="Object's bucket label. Type: String. Options: 'land-da', 'srw', 'rt', 'gdas', 'htf'")
+argParser.add_argument("-k", "--key", help="Object's key. Type: String. Ex: k = '###/###/[filename].[file_format]'")
+args = argParser.parse_args()
+
+# Instantiate Class Object.
+uploader_wrapper = UploadData(use_bucket=args.bucket)
+
+# Delete Object Based on Key.
+uploader_wrapper.purge_by_keyprefix(args.key)
