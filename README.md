@@ -43,7 +43,7 @@ The framework will be able to perform the following actions:
 Multi-threading & partitioning the datasets to assist in the optimization in uploading performance of the datasets from on-premise to cloud. 
 
 # Prerequisites
-* Setting up AWS CLI configurations with IAM credentials: https://confluence.epic.oarcloud.noaa.gov/pages/viewpage.action?spaceKey=US&title=AWS+Command+Line+Interface+%28AWS+CLI%29+Credentials+Setup
+* Setting up AWS CLI configurations with IAM credentials (requires Confluence access): https://confluence.epic.oarcloud.noaa.gov/x/EJXXAQ
 * Clone this repository (generic data uploader)
 * Setting up conda environment within RDHPCS.
     * Refer to [Environment Setup](#Environment-Setup)
