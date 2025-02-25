@@ -211,7 +211,7 @@ Within the clone (download) of this repository, you will find the following dire
 
 * Now, when you navigate to the /home/[Your user account name]/work directory in Jupyter, it will take you to the /work folder. Allowing you to obtain any data residing within the /work filesystem that you have permission to access from Jupyter. This same procedure will work for any filesystem available from the root directory.
 
-*Note: On Orion, user must sym link from their home directory to the main directory containing the datasets of interest.
+\* Note: On Orion, users must symlink from their home directory to the main directory containing the datasets of interest.
 
 ## Open & Run Application on Jupyter Notebook
 
