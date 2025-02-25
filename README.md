@@ -127,7 +127,7 @@ Reference SHA256 hash in following link: https://docs.conda.io/en/latest/minicon
 
     * source ~/.bashrc
 
-* Next, you will see the prefix (base) in front of your terminal/shell prompt. Indicating the conda's base environment is activated.
+* Next, you will see the prefix (base) in front of your terminal/shell prompt indicating the conda base environment is activated.
 
 Note: The first option below is the recommended approach for using the generic data uploader as the YAML file is provided in the repository (__generic-data-uploader/env/cloud_xfer_env.yml__). A .yml file is a text file that contains a list of dependencies, which channels a list for installing dependencies for the given conda environment. For the code to utilize the dependencies, you will need to be in the directory where the environment.yml file lives.
 
