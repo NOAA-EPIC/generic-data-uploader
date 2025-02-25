@@ -4,18 +4,9 @@ Generic Data Uploader for
     UFS-Based Datasets to Cloud Data Storage
 </h1>
 
-<p align="center">
-    <img src="images/header5.png" width="690" height="350">
-    <img src="images/header.png" width="700" height="280">
-    <img src="images/header4.png" width="650" height="250">
-    <img src="images/header2.png" width="660" height="240">
-    <img src="images/header3.png" width="530" height="380">
-     <img src="images/header6.png" width="670" height="260">
-</p>
-
 <h5 align="center">
     
-[About](#About) • [Prerequisites](#Prerequisites) • [Quick Start](#Quick-Start) • [Environment Setup](#Environment-Setup) • [What's Included](#What's-Included) • [Status](#Status) • [Version](#Version)
+[About](#About) • [Prerequisites](#Prerequisites) • [Quick Start](#Quick-Start) • [Environment Setup](#Environment-Setup) • [What's Included](#What's-Included) • [Example](#Example) • [Status](#Status) • [Version](#Version)
 
 </h5>
 
@@ -52,33 +43,42 @@ The framework will be able to perform the following actions:
 Multi-threading & partitioning the datasets to assist in the optimization in uploading performance of the datasets from on-premise to cloud. 
 
 # Prerequisites
-* Setting up AWS CLI configurations for uploading to Cloud.
-* Setting up conda environment w/in RDHPCS.
+* Setting up AWS CLI configurations with IAM credentials (requires Confluence access): https://confluence.epic.oarcloud.noaa.gov/x/EJXXAQ
+* Clone this repository (generic data uploader)
+* Setting up conda environment within RDHPCS.
     * Refer to [Environment Setup](#Environment-Setup)
 * [![Version badge](https://img.shields.io/badge/Python-3.9-blue.svg)](https://shields.io/)
 
-# Dataset
-Datasets for UFS application release versions.
-
 # Quick Start 
 __To Migrate a Single File:__
+
 1) Install miniconda per "Environment Setup" section.
    
 2) Establish AWS credentials configuration file via the "AWS Command Line Interface (AWS CLI) Credentials Setup" page in Confluence.
    
-3) Save data of interest to migrate to cloud within the repository's "main" folder & structure the data on-premise as you would like it structured in cloud. For example, the relative directory of "FILENAME.tar.gz" should be saved under the "current_land_da_release_data" folder within the repository's "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud.
+3) Save data file you want to move within the repository's "main" folder & structure the data on-premises as you would like it structured in cloud. For example, 
+    __generic-data-uploader/main/[new directory]/[new file]__
    
-4) Execute the following command within the terminal to migrate the data to cloud:
+4) Move back to "main" directory and execute the following command within the terminal to migrate the data to cloud:
    
     * python __upload_file2cloud.py__ -b __BUCKET_NAME__ -k __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__
    
         * __BUCKET_NAME__:
+            Use one of the below options for the available cloud buckets:
 
-            *  "srw" (for SRW application's bucket), "rt" (for UFS-WM RT's bucket), or "land-da" (for Land DA's bucket)
+            *  "srw" (Short-Range Weather application's bucket) 
+            *  "rt" (UFS-WM Regression Test's bucket)
+            *  "land-da" (Land DA's bucket)
+            *  "gdas" (Global Data Assimilation System bucket)
+            *  "htf"  (Hierarchical Testing Framework bucket)
+            *  "mrw"  (Mid-Range Weather application bucket)
+            *  "coastal" (UFS Costal bucket)
 
         * __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME:__
     
-            * As an example, the relative directory of "FILENAME.tar.gz" could be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premise for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. In this scenario, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ would be set to "current_land_da_release_data/FILENAME.tar.gz".
+            * As an example for Land DA files, the relative directory of "FILENAME.tar.gz" could be saved as "current_land_da_release_data/FILENAME.tar.gz" within the "main" folder on-premises for its object's key to be set as "current_land_da_release_data/FILENAME.tar.gz" in cloud. In this scenario, __FILE_DIR_TO_MIGRATE_TO_CLOUD_INCLUDING_FILENAME__ would be set to "current_land_da_release_data/FILENAME.tar.gz".
+
+            __generic-data-uploader/main/current_land_da_release_data/FILENAME.tar.gz__
 
 __To Walk-Thru & Migrate Nested Files to Cloud (Set Each File as Object w/ Key Set As Their Relative On-Premise Directory Path):__
 1) Install miniconda per "Environment Setup" section.
@@ -94,8 +94,15 @@ Each key will correspond to their object's relative directory path as seen on-pr
    * python __upload_nested_files2cloud.py__ -b __BUCKET_NAME__ -m __PARENT_DATA_FOLDERNAME_TO_MIGRATE_TO_CLOUD__/
      
         * __BUCKET_NAME__:
-    
-            * "srw" (for SRW application's bucket), "rt" (for UFS-WM RT's bucket), or "land-da" (for Land DA's bucket)
+            Use one of the below options for the available cloud buckets:
+
+            *  "srw" (Short-Range Weather application's bucket) 
+            *  "rt" (UFS-WM Regression Test's bucket)
+            *  "land-da" (Land DA's bucket)
+            *  "gdas" (Global Data Assimilation System bucket)
+            *  "htf"  (Hierarchical Testing Framework bucket)
+            *  "mrw"  (Mid-Range Weather application bucket)
+            *  "coastal" (UFS Costal bucket)
 
 # Environment Setup:
 
@@ -118,13 +125,21 @@ Reference SHA256 hash in following link: https://docs.conda.io/en/latest/minicon
 
 * For installation to take into effect, run the following command:
 
-source ~/.bashrc
+    * source ~/.bashrc
 
-* Next, you will see the prefix (base) in front of your terminal/shell prompt. Indicating the conda's base environment is activated.
+* Next, you will see the prefix (base) in front of your terminal/shell prompt indicating the conda base environment is activated.
 
-* Once you have conda installed on your machine, perform the following to create a conda environment:
+Note: The first option below is the recommended approach for using the generic data uploader; an environment YAML file is provided in the repository (__generic-data-uploader/env/cloud_xfer_env.yml__). An environment `.yml`/`.yaml` file is a text file that contains a list of dependencies and manages installation of those dependencies for the given conda environment. For the code to utilize the dependencies, you will need to be in the directory where the environment `.yml` file lives.
 
-    * To create a new environment (if a YAML file is not provided)
+* To create a new environment from an existing YAML file (if a YAML file is provided), run:
+
+    ```
+    conda env create -f cloud_xfer_env.yml (the env file for generic-data-uploader)
+    ```
+    
+(OR)
+
+* To create a new environment (if a YAML file is not provided)
 
         * conda create -n [Name of your conda environment you wish to create]
 
@@ -132,15 +147,9 @@ source ~/.bashrc
 
     * To ensure you are running Python 3.9:
 
-        * conda create -n myenv Python=3.9
-
-(OR)
-
-* To create a new environment from an existing YAML file (if a YAML file is provided):
-
-    * conda env create -f environment.yml
-
-*Note: A .yml file is a text file that contains a list of dependencies, which channels a list for installing dependencies for the given conda environment. For the code to utilize the dependencies, you will need to be in the directory where the environment.yml file lives.
+    ```
+    conda create -n myenv Python=3.9
+    ```
 
 ### Activate the new environment via:
 
@@ -152,29 +161,11 @@ conda activate [Name of your conda environment you wish to activate]
 
 *Note:
 
-* From this point on, must activate conda environment prior to .py script(s) or jupyter notebooks execution using the following command: conda activate
+* From this point on, activate the conda environment prior to executing `.py` script(s) or jupyter notebooks using the following command: `conda activate`
     * To deactivate a conda environment:
         * conda deactivate
 
-### Link Home Directory to Dataset Location on RDHPCS Platform
-
-* Unfortunately, there is no way to navigate to the "/work/" filesystem from within the Jupyter interface when working on the remote server, Orion. The best way to workaround is to create a symbolic link in your home folder that will take you to the /work/ filesystem. Run the following command from a linux terminal on Orion to create the link:
-
-    * ln -s /work /home/[Your user account name]/work
-
-* Now, when you navigate to the /home/[Your user account name]/work directory in Jupyter, it will take you to the /work folder. Allowing you to obtain any data residing within the /work filesystem that you have permission to access from Jupyter. This same procedure will work for any filesystem available from the root directory.
-
-*Note: On Orion, user must sym link from their home directory to the main directory containing the datasets of interest.
-
-## Open & Run Application on Jupyter Notebook
-
-* Open OnDemand has a built-in file explorer and file transfer application available directly from its dashboard via:
-
-    * Login to https://orion-ood.hpc.msstate.edu/
-
-* In the Open OnDemand Interface, select Interactive Apps > Jupyter Notbook
-
-### Additonal Information
+### Additonal Information for Environment
 
 To create a .yml file, execute the following commands:
 
@@ -187,9 +178,9 @@ To create a .yml file, execute the following commands:
     * conda env export > [ENVIRONMENT FILENAME].yml
 
 # What's Included
-Within the download, you will find the following directories and files:
+Within the clone (download) of this repository, you will find the following directories and files:
 * Scripts:
-    * Modules:
+    * modules:
          * __upload_data.py__
             * Uploads the UFS Land DA Application via AWS SDK
         * progress_bar.py
@@ -206,9 +197,37 @@ Within the download, you will find the following directories and files:
             * Obtains list of unique data files within the Land DA cloud storage
         * __delete_cloud_object.py__
             * Main executable script for deleting the objects of the Land DA in datasets in cloud based on their unique key.
+    * env:
+        * __cloud_xfer_env.yml__
+            * The main conda environment YML file used for the generic data uploader.
 
-* List of Dependencies: 
-    * cloud_xfer_env.yml
+### Link Home Directory to Dataset Location on RDHPCS Platform
+
+* Unfortunately, there is no way to navigate to the "/work/" filesystem from within the Jupyter interface when working on the remote server, Orion. The best way to workaround is to create a symbolic link in your home folder that will take you to the /work/ filesystem. Run the following command from a linux terminal on Orion to create the link:
+
+    ```
+    ln -s /work /home/[Your user account name]/work
+    ```
+
+* Now, when you navigate to the `/home/[your_user_account_name]/work` directory in Jupyter, it will take you to the `/work` folder. Allowing you to obtain any data residing within the `/work` filesystem that you have permission to access from Jupyter. This same procedure will work for any filesystem available from the root directory.
+
+\* Note: On Orion, users must symlink from their home directory to the main directory containing the datasets of interest.
+
+## Open & Run Application on Jupyter Notebook
+
+* Open OnDemand has a built-in file explorer and file transfer application available directly from its dashboard via:
+
+    * Login to https://orion-ood.hpc.msstate.edu/
+
+* In the Open OnDemand Interface, select Interactive Apps > Jupyter Notbook
+
+# Example 
+
+Below is an example of what the files and directory look like in the AWS S3 bucket. This specific example is for the Land DA bucket with its most recent release.
+
+<p align="center">
+    <img src=images/landdaex.jpg" width="690" height="350">
+</p>
 
 # Status
 
@@ -216,4 +235,4 @@ Within the download, you will find the following directories and files:
 [![Build badge](https://img.shields.io/badge/build-passing-blue)](https://shields.io/)
 
 # Version:
-* Draft as of 06/16/23
+* Draft as of 11/21/24

@@ -27,7 +27,7 @@ class UploadData():
                               storage bucket designated for the UFS SRW datasets. If set to
                               'land-da', datasets will be uploaded to the cloud data storage
                               bucket designated for the UFS Land DA datasets. 
-                              Options: 'srw', 'land-da', 'rt', 'gdas', 'htf'
+                              Options: 'srw', 'land-da', 'rt', 'gdas', 'htf', 'coastal'
                               
         """
         
@@ -49,6 +49,9 @@ class UploadData():
         elif use_bucket == 'rt':
             self.bucket_name = 'noaa-ufs-regtests-pds'
             self.profile = 'ufs-wm-rt-app'
+        elif use_bucket == 'coastal':
+            self.bucket_name = 'noaa-ufs-coastal-pds'
+            self.profile = 'coastal-app'
         else:
             print(f"{use_bucket} Bucket Does Not Exist.")
             
