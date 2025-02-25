@@ -180,7 +180,7 @@ To create a .yml file, execute the following commands:
 # What's Included
 Within the clone (download) of this repository, you will find the following directories and files:
 * Scripts:
-    * Modules:
+    * modules:
          * __upload_data.py__
             * Uploads the UFS Land DA Application via AWS SDK
         * progress_bar.py
