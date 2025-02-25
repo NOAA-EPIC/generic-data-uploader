@@ -178,7 +178,7 @@ To create a .yml file, execute the following commands:
     * conda env export > [ENVIRONMENT FILENAME].yml
 
 # What's Included
-Within the download of this repository you will find the following directories and files:
+Within the clone (download) of this repository, you will find the following directories and files:
 * Scripts:
     * Modules:
          * __upload_data.py__
